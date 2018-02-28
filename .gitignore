@@ -1,3 +1,6 @@
 venv/
 targets/
 data/
+.idea/
+*.egg-info
+__pycache__

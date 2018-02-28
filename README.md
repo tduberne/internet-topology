@@ -41,4 +41,15 @@ before commit).
 The whole pipeline is configured through a Makefile.
 Simply typing `make` should run the whole process.
 
+Dependencies
+============
 
+The project depends on the `cartopy` python package for geographic visualization.
+This project has a few non-python dependencies that have to be installed by hand,
+see <http://scitools.org.uk/cartopy/docs/latest/installing.html#installing>.
+
+On a Debian Stretch system, the following made it go through:
+
+```
+sudo apt-get install libproj-dev libgeos++-dev
+```
