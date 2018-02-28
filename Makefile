@@ -14,7 +14,8 @@ ARK_PATH=ark/ipv4/itdk/2016-09/
 
 .PHONY: cleaned_data setup rm_cleaned_data
 
-cleaned_data: data/01_interim/nodes_geo.csv data/01_interim/network_links.csv data/01_interim/nodes_AS.csv
+cleaned_data: data/01_interim/nodes_geo.csv data/01_interim/network_links.csv data/01_interim/nodes_AS.csv\
+		data/01_interim/cliques.csv
 	echo all cleaned data was made
 
 ######################################################################################
@@ -56,6 +57,9 @@ data/01_interim/nodes_geo.csv: data/00_original/ark.stamp | data/01_interim/
 
 data/01_interim/network_links.csv: data/00_original/ark.stamp | data/01_interim/
 	bzip2 -cd data/00_original/$(ARK_PATH)/$(TOPOLOGY).links.bz2 | awk -f awk/format_links.awk > $@
+
+data/01_interim/cliques.csv: data/00_original/ark.stamp | data/01_interim/
+	bzip2 -cd data/00_original/$(ARK_PATH)/$(TOPOLOGY).links.bz2 | awk -f awk/format_cliques.awk > $@
 
 data/01_interim/nodes_AS.csv: data/00_original/ark.stamp | data/01_interim/
 	bzip2 -cd data/00_original/$(ARK_PATH)/$(TOPOLOGY).nodes.as.bz2 | awk -f awk/format_AS.awk > $@
