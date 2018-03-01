@@ -15,7 +15,7 @@ ARK_PATH=ark/ipv4/itdk/2016-09/
 .PHONY: cleaned_data setup rm_cleaned_data
 
 cleaned_data: data/01_interim/nodes_geo.csv.bz2 data/01_interim/network_links.csv.bz2 data/01_interim/nodes_AS.csv.bz2\
-		data/01_interim/cliques.csv
+		data/01_interim/cliques.csv.bz2
 	echo all cleaned data was made
 
 ######################################################################################
